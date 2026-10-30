@@ -38,60 +38,61 @@ body {
 .blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(90px);
-  opacity: 0.8;
+  filter: blur(80px);
+  opacity: 0.45; /* Уменьшили прозрачность */
 }
 
-body.dark .blob { opacity: 0.4; }
+body.dark .blob { opacity: 0.2; }
 
+/* Сделали цвета более пастельными (нежными) */
 .blob-1 {
   width: 60vw; height: 60vw;
-  background: rgba(255, 182, 193, 0.7);
+  background: #ffd6e0; 
   top: -20%; left: -10%;
   animation: float1 12s infinite alternate ease-in-out;
 }
 
 .blob-2 {
   width: 50vw; height: 50vw;
-  background: rgba(173, 216, 230, 0.7);
+  background: #d6e6ff;
   bottom: -10%; right: -10%;
-  animation: float2 15s infinite alternate ease-in-out;
+  animation: float2 14s infinite alternate ease-in-out;
 }
 
 .blob-3 {
   width: 45vw; height: 45vw;
-  background: rgba(221, 160, 221, 0.6);
+  background: #ebd6ff;
   top: 30%; left: 40%;
-  animation: float3 18s infinite alternate ease-in-out;
+  animation: float3 16s infinite alternate ease-in-out;
 }
 
 .blob-4 {
   width: 40vw; height: 40vw;
-  background: rgba(255, 228, 196, 0.6);
+  background: #fff0d6;
   bottom: 20%; left: 10%;
-  animation: float4 20s infinite alternate ease-in-out;
+  animation: float4 13s infinite alternate ease-in-out;
 }
 
-body.dark .blob-1 { background: rgba(255, 100, 130, 0.2); }
-body.dark .blob-2 { background: rgba(100, 150, 255, 0.2); }
-body.dark .blob-3 { background: rgba(180, 100, 255, 0.2); }
-body.dark .blob-4 { background: rgba(100, 255, 180, 0.2); }
+body.dark .blob-1 { background: #552233; }
+body.dark .blob-2 { background: #223355; }
+body.dark .blob-3 { background: #332255; }
+body.dark .blob-4 { background: #554422; }
 
 @keyframes float1 {
   0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(100px, 80px) scale(1.2); }
+  100% { transform: translate(15vw, 10vw) scale(1.2); }
 }
 @keyframes float2 {
   0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(-120px, -60px) scale(1.1); }
+  100% { transform: translate(-15vw, -10vw) scale(1.1); }
 }
 @keyframes float3 {
   0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(-80px, 100px) scale(1.3); }
+  100% { transform: translate(-10vw, 15vw) scale(1.3); }
 }
 @keyframes float4 {
   0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(120px, -80px) scale(1.2); }
+  100% { transform: translate(10vw, -15vw) scale(1.2); }
 }
 
 .navbar {
