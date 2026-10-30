@@ -13,6 +13,22 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  var orderBtn = document.getElementById('order-btn');
+  var dropdownMenu = document.getElementById('dropdown-menu');
+
+  if (orderBtn && dropdownMenu) {
+    orderBtn.addEventListener('click', function(event) {
+      event.stopPropagation();
+      dropdownMenu.classList.toggle('show');
+    });
+
+    document.addEventListener('click', function(event) {
+      if (!dropdownMenu.contains(event.target) && event.target !== orderBtn) {
+        dropdownMenu.classList.remove('show');
+      }
+    });
+  }
+
   var scrollTopBtn = document.getElementById('scrollTopBtn');
 
   if (scrollTopBtn) {
