@@ -38,45 +38,44 @@ body {
 .blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.45; /* Уменьшили прозрачность */
+  filter: blur(75px);
+  opacity: 0.65;
 }
 
-body.dark .blob { opacity: 0.2; }
+body.dark .blob { opacity: 0.3; }
 
-/* Сделали цвета более пастельными (нежными) */
 .blob-1 {
   width: 60vw; height: 60vw;
-  background: #ffd6e0; 
+  background: #ffb3c6; 
   top: -20%; left: -10%;
-  animation: float1 12s infinite alternate ease-in-out;
+  animation: float1 10s infinite alternate ease-in-out;
 }
 
 .blob-2 {
   width: 50vw; height: 50vw;
-  background: #d6e6ff;
+  background: #b3d4ff;
   bottom: -10%; right: -10%;
-  animation: float2 14s infinite alternate ease-in-out;
+  animation: float2 12s infinite alternate ease-in-out;
 }
 
 .blob-3 {
   width: 45vw; height: 45vw;
-  background: #ebd6ff;
+  background: #d9b3ff;
   top: 30%; left: 40%;
-  animation: float3 16s infinite alternate ease-in-out;
+  animation: float3 14s infinite alternate ease-in-out;
 }
 
 .blob-4 {
   width: 40vw; height: 40vw;
-  background: #fff0d6;
+  background: #ffe6b3;
   bottom: 20%; left: 10%;
-  animation: float4 13s infinite alternate ease-in-out;
+  animation: float4 11s infinite alternate ease-in-out;
 }
 
-body.dark .blob-1 { background: #552233; }
-body.dark .blob-2 { background: #223355; }
-body.dark .blob-3 { background: #332255; }
-body.dark .blob-4 { background: #554422; }
+body.dark .blob-1 { background: #662233; }
+body.dark .blob-2 { background: #223366; }
+body.dark .blob-3 { background: #442266; }
+body.dark .blob-4 { background: #665522; }
 
 @keyframes float1 {
   0% { transform: translate(0, 0) scale(1); }
