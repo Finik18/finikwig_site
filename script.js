@@ -47,4 +47,20 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
+
+  var reveals = document.querySelectorAll('.reveal');
+  
+  if (reveals.length > 0) {
+    var revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.15 });
+    
+    reveals.forEach(function(el) {
+      revealObserver.observe(el);
+    });
+  }
 });
