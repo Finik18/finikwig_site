@@ -364,6 +364,10 @@ body.dark .navbar {
   font-size: 0.95rem;
 }
 
+.price-note p {
+  margin-bottom: 8px;
+}
+
 .contact-links { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
 
 .contact-btn {
@@ -449,6 +453,17 @@ footer { text-align: center; padding: 40px; opacity: 0.5; font-size: 0.9rem; }
 #scrollTopBtn:hover {
   background-color: #d18a9c;
   transform: translateY(-5px);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (max-width: 768px) {
