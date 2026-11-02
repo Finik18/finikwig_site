@@ -41,15 +41,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     scrollTopBtn.addEventListener('click', function() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
 
   var reveals = document.querySelectorAll('.reveal');
-  
   if (reveals.length > 0) {
     var revealObserver = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
@@ -63,4 +59,36 @@ document.addEventListener('DOMContentLoaded', function() {
       revealObserver.observe(el);
     });
   }
+
+  var carousels = document.querySelectorAll('.carousel-container');
+
+  carousels.forEach(function(container) {
+    var track = container.querySelector('.carousel-track');
+    var slides = Array.from(track.children);
+    var nextButton = container.querySelector('.next-btn');
+    var prevButton = container.querySelector('.prev-btn');
+    var currentIndex = 0;
+
+    function updateCarousel() {
+      track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
+    }
+
+    nextButton.addEventListener('click', function() {
+      if (currentIndex < slides.length - 1) {
+        currentIndex++;
+      } else {
+        currentIndex = 0;
+      }
+      updateCarousel();
+    });
+
+    prevButton.addEventListener('click', function() {
+      if (currentIndex > 0) {
+        currentIndex--;
+      } else {
+        currentIndex = slides.length - 1;
+      }
+      updateCarousel();
+    });
+  });
 });
