@@ -91,4 +91,4 @@ document.addEventListener('DOMContentLoaded', function() {
       updateCarousel();
     });
   });
-});
+});``
