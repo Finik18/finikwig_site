@@ -60,35 +60,35 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  var carousels = document.querySelectorAll('.carousel-container');
+  function setupCarousel(trackId, prevBtnId, nextBtnId) {
+    var track = document.getElementById(trackId);
+    var prevBtn = document.getElementById(prevBtnId);
+    var nextBtn = document.getElementById(nextBtnId);
+    
+    if (!track || !prevBtn || !nextBtn) return;
 
-  carousels.forEach(function(container) {
-    var track = container.querySelector('.carousel-track');
-    var slides = Array.from(track.children);
-    var nextButton = container.querySelector('.next-btn');
-    var prevButton = container.querySelector('.prev-btn');
+    var cards = track.querySelectorAll('.card');
+    var cardWidth = cards[0].offsetWidth + 30;
+    var visibleCards = window.innerWidth > 900 ? 3 : (window.innerWidth > 768 ? 2 : 1);
+    var maxIndex = cards.length - visibleCards;
+
+    nextBtn.addEventListener('click', function() {
+      if (maxIndex > 0) {
+        currentIndex = (currentIndex + 1) > maxIndex ? 0 : currentIndex + 1;
+        track.style.transform = 'translateX(-' + (currentIndex * cardWidth) + 'px)';
+      }
+    });
+
+    prevBtn.addEventListener('click', function() {
+      if (maxIndex > 0) {
+        currentIndex = (currentIndex - 1) < 0 ? maxIndex : currentIndex - 1;
+        track.style.transform = 'translateX(-' + (currentIndex * cardWidth) + 'px)';
+      }
+    });
+    
     var currentIndex = 0;
+  }
 
-    function updateCarousel() {
-      track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
-    }
-
-    nextButton.addEventListener('click', function() {
-      if (currentIndex < slides.length - 1) {
-        currentIndex++;
-      } else {
-        currentIndex = 0;
-      }
-      updateCarousel();
-    });
-
-    prevButton.addEventListener('click', function() {
-      if (currentIndex > 0) {
-        currentIndex--;
-      } else {
-        currentIndex = slides.length - 1;
-      }
-      updateCarousel();
-    });
-  });
-});``
+  setupCarousel('work-track', 'work-prev', 'work-next');
+  setupCarousel('cosplay-track', 'cosplay-prev', 'cosplay-next');
+});
